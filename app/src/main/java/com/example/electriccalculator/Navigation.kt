@@ -12,6 +12,8 @@ object Routes{
     const val MENU = "menu"
     const val OHM_LAW = "ohm_law"
     const val RESISTOR = "resistor"
+    const val CAPACITOR = "capasitor"
+    const val INDUCTOR = "induktor"
 }
 
 @Composable
@@ -27,6 +29,12 @@ fun AppNavigation() {
         }
         composable(Routes.RESISTOR){
             ResistorScreen()
+        }
+        composable(Routes.CAPACITOR){
+            CapacitorScreen()
+        }
+        composable(Routes.INDUCTOR){
+            InductorScreen()
         }
     }
 }

@@ -32,6 +32,18 @@ fun MenuScreen(navController: NavHostController) {
             Text("Resistor SERI / PARALEL")
         }
 
-        // tambah button lain untuk resistor kapasitor dll
+        Button(
+            onClick = { navController.navigate(Routes.CAPACITOR)},
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Kapasitor SERI / PARALEL")
+        }
+
+        Button(
+            onClick = { navController.navigate(Routes.INDUCTOR)},
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Induktor SERI / PARARLEL")
+        }
     }
 }
