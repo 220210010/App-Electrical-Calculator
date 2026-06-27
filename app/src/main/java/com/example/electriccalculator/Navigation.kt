@@ -14,6 +14,7 @@ object Routes{
     const val RESISTOR = "resistor"
     const val CAPACITOR = "capasitor"
     const val INDUCTOR = "induktor"
+    const val AC_CIRCUIT = "ac_circuit"
 }
 
 @Composable
@@ -35,6 +36,9 @@ fun AppNavigation() {
         }
         composable(Routes.INDUCTOR){
             InductorScreen()
+        }
+        composable (Routes.AC_CIRCUIT) {
+            ACCircuitScreen()
         }
     }
 }

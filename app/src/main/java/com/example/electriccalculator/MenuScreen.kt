@@ -45,5 +45,12 @@ fun MenuScreen(navController: NavHostController) {
         ) {
             Text("Induktor SERI / PARARLEL")
         }
+
+        Button(
+            onClick = {navController.navigate(Routes.AC_CIRCUIT)},
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("AC Circuit (Impedansi & Resonansi)")
+        }
     }
 }
