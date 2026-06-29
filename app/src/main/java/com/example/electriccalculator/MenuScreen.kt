@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
@@ -51,6 +52,27 @@ fun MenuScreen(navController: NavHostController) {
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("AC Circuit (Impedansi & Resonansi)")
+        }
+
+        Button(
+            onClick = {navController.navigate(Routes.POWER_CONVERTER)},
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Konversi Watt - HP")
+        }
+
+        Button(
+            onClick = {navController.navigate(Routes.RF_POWER_CONVERTER)},
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Konversi dbm - Watt")
+        }
+
+        Button(
+            onClick = {navController.navigate(Routes.CONDUCTANCE_CONVERTER)},
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Konversi Ohm - Siemens")
         }
     }
 }

@@ -15,6 +15,9 @@ object Routes{
     const val CAPACITOR = "capasitor"
     const val INDUCTOR = "induktor"
     const val AC_CIRCUIT = "ac_circuit"
+    const val POWER_CONVERTER = "power_converter"
+    const val RF_POWER_CONVERTER = "rf_power_converter"
+    const val CONDUCTANCE_CONVERTER = "conductance_converter"
 }
 
 @Composable
@@ -39,6 +42,15 @@ fun AppNavigation() {
         }
         composable (Routes.AC_CIRCUIT) {
             ACCircuitScreen()
+        }
+        composable (Routes.POWER_CONVERTER) {
+            PowerConverterScreen()
+        }
+        composable (Routes.RF_POWER_CONVERTER) {
+            RfPowerConverterScreen()
+        }
+        composable (Routes.CONDUCTANCE_CONVERTER){
+            ConductanceConverterScreen()
         }
     }
 }
