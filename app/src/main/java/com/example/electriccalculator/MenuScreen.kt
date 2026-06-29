@@ -74,5 +74,12 @@ fun MenuScreen(navController: NavHostController) {
         ) {
             Text("Konversi Ohm - Siemens")
         }
+
+        Button(
+            onClick = {navController.navigate(Routes.RESISTOR_COLOR_CODE)},
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Kode Warna Resistor")
+        }
     }
 }

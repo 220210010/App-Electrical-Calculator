@@ -18,6 +18,7 @@ object Routes{
     const val POWER_CONVERTER = "power_converter"
     const val RF_POWER_CONVERTER = "rf_power_converter"
     const val CONDUCTANCE_CONVERTER = "conductance_converter"
+    const val RESISTOR_COLOR_CODE = "resistor_color_code"
 }
 
 @Composable
@@ -51,6 +52,9 @@ fun AppNavigation() {
         }
         composable (Routes.CONDUCTANCE_CONVERTER){
             ConductanceConverterScreen()
+        }
+        composable (Routes.RESISTOR_COLOR_CODE){
+            ResistorColorCodeScreen()
         }
     }
 }
