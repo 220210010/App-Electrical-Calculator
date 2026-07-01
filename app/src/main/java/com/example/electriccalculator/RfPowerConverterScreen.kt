@@ -18,7 +18,7 @@ fun RfPowerConverterScreen() {
             .padding(24.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        Text("Konversi dbm - Watt", style = MaterialTheme.typography.headlineSmall)
+        Text("Konversi dBm - Watt", style = MaterialTheme.typography.headlineSmall)
 
         OutlinedTextField(
             value = dbmInput,
@@ -29,7 +29,7 @@ fun RfPowerConverterScreen() {
                     "%.6f".format(RfPowerConverter.dbmToWatt(dbm))
                 } else ""
             },
-            label = { Text("dbm")},
+            label = { Text("dBm")},
             modifier = Modifier.fillMaxWidth()
         )
 

@@ -1,93 +1,114 @@
 package com.example.electriccalculator
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 
 @Composable
 fun MenuScreen(navController: NavHostController) {
-    Column(
+    LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .padding(24.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp)
-    )   {
-        Text("Kalkulator Electrical", style = MaterialTheme.typography.headlineSmall)
-
-        Button(
-            onClick = { navController.navigate(Routes.OHM_LAW) },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Hukum Ohm")
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        item {
+            Text(
+                "Kalkulator Electrical",
+                style = MaterialTheme.typography.headlineSmall
+            )
+            Spacer(modifier = Modifier.height(8.dp))
         }
 
-        Button(
-            onClick = { navController.navigate(Routes.RESISTOR) },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Resistor SERI / PARALEL")
+        // ── Hukum Dasar ──────────────────────────────
+        item {
+            CategoryHeader("Hukum Dasar")
+        }
+        item {
+            MenuButton("Hukum Ohm") {
+                navController.navigate(Routes.OHM_LAW)
+            }
+        }
+        item {
+            MenuButton("AC Circuit (Impedansi & Resonansi)") {
+                navController.navigate(Routes.AC_CIRCUIT)
+            }
         }
 
-        Button(
-            onClick = { navController.navigate(Routes.CAPACITOR)},
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Kapasitor SERI / PARALEL")
+        // ── Komponen Pasif ────────────────────────────
+        item {
+            Spacer(modifier = Modifier.height(4.dp))
+            CategoryHeader("Komponen Pasif")
+        }
+        item {
+            MenuButton("Resistor Seri / Paralel") {
+                navController.navigate(Routes.RESISTOR)
+            }
+        }
+        item {
+            MenuButton("Kapasitor Seri / Paralel") {
+                navController.navigate(Routes.CAPACITOR)
+            }
+        }
+        item {
+            MenuButton("Induktor Seri / Paralel") {
+                navController.navigate(Routes.INDUCTOR)
+            }
+        }
+        item {
+            MenuButton("Kode Warna Resistor") {
+                navController.navigate(Routes.RESISTOR_COLOR_CODE)
+            }
         }
 
-        Button(
-            onClick = { navController.navigate(Routes.INDUCTOR)},
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Induktor SERI / PARARLEL")
+        // ── Konversi Unit ─────────────────────────────
+        item {
+            Spacer(modifier = Modifier.height(4.dp))
+            CategoryHeader("Konversi Unit")
         }
+        item {
+            MenuButton("Konversi Watt - HP") {
+                navController.navigate(Routes.POWER_CONVERTER)
+            }
+        }
+        item {
+            MenuButton("Konversi dBm - Watt") {
+                navController.navigate(Routes.RF_POWER_CONVERTER)
+            }
+        }
+        item {
+            MenuButton("Konversi Ohm - Siemens") {
+                navController.navigate(Routes.CONDUCTANCE_CONVERTER)
+            }
+        }
+        item {
+            MenuButton("Konversi Prefix SI") {
+                navController.navigate(Routes.SI_PREFIX_CONVERTER)
+            }
+        }
+    }
+}
 
-        Button(
-            onClick = {navController.navigate(Routes.AC_CIRCUIT)},
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("AC Circuit (Impedansi & Resonansi)")
-        }
+@Composable
+private fun CategoryHeader(title: String) {
+    Text(
+        text = title.uppercase(),
+        style = MaterialTheme.typography.labelMedium,
+        color = MaterialTheme.colorScheme.secondary,
+        modifier = Modifier.padding(vertical = 4.dp)
+    )
+}
 
-        Button(
-            onClick = {navController.navigate(Routes.POWER_CONVERTER)},
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Konversi Watt - HP")
-        }
-
-        Button(
-            onClick = {navController.navigate(Routes.RF_POWER_CONVERTER)},
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Konversi dbm - Watt")
-        }
-
-        Button(
-            onClick = {navController.navigate(Routes.CONDUCTANCE_CONVERTER)},
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Konversi Ohm - Siemens")
-        }
-
-        Button(
-            onClick = {navController.navigate(Routes.RESISTOR_COLOR_CODE)},
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Kode Warna Resistor")
-        }
-
-        Button(
-            onClick = {navController.navigate(Routes.SI_PREFIX_CONVERTER)},
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text("Konversi Prefix SI")
-        }
+@Composable
+private fun MenuButton(label: String, onClick: () -> Unit) {
+    Button(
+        onClick = onClick,
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Text(label)
     }
 }
